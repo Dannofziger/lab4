@@ -1,4 +1,5 @@
 var expect = require("../node_modules/chai/chai").expect,
+    _ = require("../node_modules/lodash/lodash"),
     functional = require("../exercises/functional");
 
 describe("Functional", function() {

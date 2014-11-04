@@ -1,4 +1,8 @@
-var exercises = {};
+var exercises = {},
+tempArray,
+currentNum,
+waldo,
+_ = require("../node_modules/lodash/lodash");
 
 // 8 points
 // this function takes a variable number of string arguments
@@ -6,7 +10,13 @@ var exercises = {};
 // lodash to return the first string containing the substring
 // "waldo"
 exercises.wheresWaldo = function() {
-  // TODO: implement me
+  var args = arguments;
+  _.each(args, function(num) {
+    if (num.indexOf("waldo") !== -1) {
+      waldo = num;
+    }
+  });
+  return waldo;
 };
 
 // 8 points
@@ -14,7 +24,14 @@ exercises.wheresWaldo = function() {
 // array holding the largest number in each sub-array.
 // use _.chain() and _.map() and _.max()
 exercises.largestNums = function(arrayOfNumberArrays) {
-  // TODO: implement me
+  currentNum = 0;
+  tempArray = arrayOfNumberArrays;
+  currentNum = _.chain(tempArray)
+    .map(function(array) {
+      return _.max(array);
+    })
+    .value();
+  return currentNum;
 };
 
 // 8 points
